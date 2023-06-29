@@ -1,0 +1,48 @@
+:root {
+  --green: #4CAF50;
+  --grey: #777777;
+  --red: #AF0000;
+}
+
+button {
+  background-color: var(--green);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+input {
+  border: none;
+  border-bottom: 5px solid var(--grey);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.delButton {
+  background-color: var(--red);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.topRow {
+  background-color: var(--green);
+  border: 2px solid var(--green);
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  font-size: 16px;
+}
