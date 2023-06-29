@@ -1,11 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head
-    <title></title>
-  </head>
-  <body>
-    <svg width="1134" height="580">
-      <image href="2023-Field.png"/>
-    </svg>
+  <script src=".\uiScripts.js"></script>
+  <script src=".\graphics.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.3.2/math.js"></script>
+  <link rel="stylesheet" href=".\ui\uiStyles.css">
+  <body onload="addRow()">
+    <center>
+      <svg id="field" width="1134" height="580" xmlns="http://www.w3.org/2000/svg">
+        <image href="2023-Field.png"/>
+      </svg>
+      <table>
+        <tr>
+          <td>
+            <button type="button" onclick="addRow()">Add Point</button>
+          </td>
+          <td>
+            <button type="button" onclick="displayPath()">Update Path</button>
+          </td>
+          <td>
+            <button type="button">Download</button>
+          </td>
+          <td>
+            <button type="button">Export</button>
+          </td>
+          <td>
+            <button type="button">Import</button>
+            <input type="file" />
+          </td>
+        </tr>
+      </table>
+      <div id = "pointsTable">
+        <table id="points">
+          <tr class="topRow">
+            <td>
+              <center>
+                <p>X</p>
+              </center>
+            </td>
+            <td>
+              <center>
+                <p>Y</p>
+              </center>
+            </td>
+            <td>
+              <center>
+                <p>Heading</p>
+              </center>
+            </td>
+            <td>
+              <center>
+                <p>Delete</p>
+              </center>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </center>
+    <!-- <p id="textText">text</p> -->
   </body>
+
 </html>
