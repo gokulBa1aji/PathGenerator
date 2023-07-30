@@ -1,10 +1,41 @@
+var topLeftX = 46;
+var topLeftY = 36;
+
+var bottomRightX = 1088;
+var bottomRightY = 544;
+
+var width = 54.27083 * 0.3048;
+var height = 26.2916 * 0.3048;
+
 function displayPath() {
   clearPoses();
   drawPoses();
   drawPath();
 }
 
+function pixelsToMeters(x, y) {
+  var xScaleFactor = width / (bottomRightX - topLeftX);
+  var yScaleFactor = height / (bottomRightY - topLeftY);
+
+  var adjustedXPixels = x - topLeftX;
+  var adjustedYPixels = y - topLeftY;
+
+  return [adjustedXPixels * xScaleFactor, adjustedYPixels * yScaleFactor];
+}
+
+function metersToPixels(x, y) {
+  var xScaleFactor = width / (bottomRightX - topLeftX);
+  var yScaleFactor = height / (bottomRightY - topLeftY);
+
+  var adjustedXPixels = x / xScaleFactor;
+  var adjustedYPixels = y / yScaleFactor;
+
+  return [adjustedXPixels + topLeftX, adjustedYPixels + topLeftY];
+}
+
 function drawPoses() {
+
+
   var points = document.getElementById("points");
   var availablePoints = points.rows.length - 1;
   var pointsList = []
@@ -18,14 +49,16 @@ function drawPoses() {
       var name1 = "x" + count;
       var name2 = "y" + count;
       var name3 = "theta" + count;
-      // alert(name1 + "," + name2 + "," + name3)
+
       var x = document.getElementById(name1).value;
       var y = document.getElementById(name2).value;
       var theta = document.getElementById(name3).value;
 
+      var coord = metersToPixels(x, y);
+
       // alert(x + ", " + y + ", " + theta);
       visitedPoints = visitedPoints + 1;
-      pointsList.push([x, y, theta]);
+      pointsList.push([coord[0], coord[1], theta]);
     } catch {
 
     }
